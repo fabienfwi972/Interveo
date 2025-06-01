@@ -1,67 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Dashboard – Disponibilités Clients SAV</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>Dashboard - Disponibilités Clients SAV</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-800">
-    <div class="container mx-auto py-8">
-        <h1 class="text-2xl font-bold mb-4">Dashboard – Disponibilités Clients SAV</h1>
-        <table class="min-w-full bg-white shadow-md rounded">
-            <thead>
-                <tr>
-                    <th class="py-2 px-4 border">Nom</th>
-                    <th class="py-2 px-4 border">Adresse</th>
-                    <th class="py-2 px-4 border">Latitude</th>
-                    <th class="py-2 px-4 border">Longitude</th>
-                    <th class="py-2 px-4 border">Date précise</th>
-                    <th class="py-2 px-4 border">Disponibilités</th>
-                </tr>
-            </thead>
-            <tbody id="table-body"></tbody>
-        </table>
-        <button id="reload" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">Recharger</button>
+<body class="bg-gray-100 p-6">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-2xl font-bold mb-4 text-blue-700">📅 Dashboard – Disponibilités Clients SAV</h3>
+
+    <div class="mb-4">
+      <button id="reload" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">🔄 Recharger les données</button>
     </div>
-    <script>
-        document.getElementById("reload").addEventListener("click", () => {
-            fetch("https://script.google.com/macros/s/AKfycbx6wHTCATv8Vp50SPOu7mNyghmVkNg0prNOHMK-sTXE9gaRUD2q03uQdMDIOGj0dECR/exec")
-                .then(response => response.json())
-                .then(data => {
-                    const tbody = document.getElementById("table-body");
-                    tbody.innerHTML = "";
-                    const grouped = {};
 
-                    data.forEach(row => {
-                        const key = row.Nom + row.Adresse;
-                        if (!grouped[key]) {
-                            grouped[key] = {
-                                Nom: row["Nom"],
-                                Adresse: row["Adresse"],
-                                Latitude: row["Latitude"],
-                                Longitude: row["Longitude"],
-                                "Date précise": row["Date précise"],
-                                Disponibilités: []
-                            };
-                        }
-                        grouped[key].Disponibilites.push(
-                            ${row["Matin"] === 'Oui' ? 'Matin' : ''} ${row["Après-midi"] === 'Oui' ? 'Après-midi' : ''}                        );
-                    });
+    <table class="w-full border-collapse bg-white shadow rounded">
+      <thead>
+        <tr class="bg-blue-100 text-left">
+          <th class="px-2 py-2 border">#</th>
+          <th class="px-2 py-2 border">Nom</th>
+          <th class="px-2 py-2 border">Adresse</th>
+          <th class="px-2 py-2 border">Jour</th>
+          <th class="px-2 py-2 border">Matin</th>
+          <th class="px-2 py-2 border">Après-midi</th>
+          <th class="px-2 py-2 border">Date précise</th>
+          <th class="px-2 py-2 border">Créneaux personnalisés</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+  </div>
 
-                    Object.values(grouped).forEach(row => {
-                        const tr = document.createElement("tr");
-                        tr.innerHTML = `
-                            <td class="py-2 px-4 border">${row["Nom"]}</td>
-                            <td class="py-2 px-4 border">${row["Adresse"]}</td>
-                            <td class="py-2 px-4 border">${row["Latitude"]}</td>
-                            <td class="py-2 px-4 border">${row["Longitude"]}</td>
-                            <td class="py-2 px-4 border">${row["Date précise"]}</td>
-                        `;
-                        tbody.appendChild(tr);
-                    });
-                });
-        });
-    </script>
+  <script>
+    document.getElementById("reload").addEventListener("click", () => {
+      fetch("https://script.google.com/macros/s/AKfycbx6wHTCATv8Vp50SPOu7mNyghmVkNg0prNOHMK-sTXE9gaRUD2q03uQdMDIOGj0dECR/exec")
+        .then(response => response.json())
+        .then(data => {
+          const tbody = document.getElementById("table-body");
+          tbody.innerHTML = "";
+
+          data.forEach((row, index) => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+              <td class="px-2 py-2 border">${index + 1}</td>
+              <td class="px-2 py-2 border">${row["Nom"] || ""}</td>
+              <td class="px-2 py-2 border">${row["Adresse"] || ""}</td>
+              <td class="px-2 py-2 border">${row["Jour"] || ""}</td>
+              <td class="px-2 py-2 border">${row["Matin"] || ""}</td>
+              <td class="px-2 py-2 border">${row["Après-midi"] || ""}</td>
+              <td class="px-2 py-2 border">${row["Date précise"]?.substring(0, 10) || ""}</td>
+              <td class="px-2 py-2 border">${row["Créneaux personnalisés"] || ""}</td>
+            `;
+            tbody.appendChild(tr);
+          });
+        })
+        .catch(err => alert("❌ Erreur de chargement : " + err));
+    });
+  </script>
 </body>
 </html>
