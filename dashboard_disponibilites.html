@@ -55,6 +55,10 @@
         })
         .catch(err => alert("❌ Erreur de chargement : " + err));
     });
+    // Déclenchement automatique au chargement de la page
+  window.addEventListener("DOMContentLoaded", chargerDonnees);
+  // Déclenchement manuel via le bouton
+  document.getElementById("reload").addEventListener("click", chargerDonnees);
   </script>
 </body>
 </html>
