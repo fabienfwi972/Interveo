@@ -52,12 +52,11 @@
                     Object.values(grouped).forEach(row => {
                         const tr = document.createElement("tr");
                         tr.innerHTML = `
-                            <td class="py-2 px-4 border">${row.Nom}</td>
-                            <td class="py-2 px-4 border">${row.Adresse}</td>
-                            <td class="py-2 px-4 border">${row.Latitude}</td>
-                            <td class="py-2 px-4 border">${row.Longitude}</td>
+                            <td class="py-2 px-4 border">${row["Nom"]}</td>
+                            <td class="py-2 px-4 border">${row["Adresse"]}</td>
+                            <td class="py-2 px-4 border">${row["Latitude"]}</td>
+                            <td class="py-2 px-4 border">${row["Longitude"]}</td>
                             <td class="py-2 px-4 border">${row["Date précise"]}</td>
-                            <td class="py-2 px-4 border">${row.Disponibilites.join("<br>")}</td>
                         `;
                         tbody.appendChild(tr);
                     });
