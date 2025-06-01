@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Disponibilités Client SAV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+  <style>#map { height: 300px; }</style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="max-w-3xl mx-auto p-6 bg-white mt-10 rounded-xl shadow-xl">
+    <h1 class="text-2xl font-bold mb-4">Disponibilités pour intervention SAV</h1>
+    <form id="disponibilite-form" class="space-y-6">
+      <div>
+        <label for="client-nom" class="block font-semibold mb-1">Nom du client :</label>
+        <input type="text" id="client-nom" name="client" class="w-full p-2 border rounded" required />
+      </div>
+      <div>
+        <label for="adresse" class="block font-semibold mb-1">Adresse :</label>
+        <input type="text" id="adresse" name="adresse" class="w-full p-2 border rounded" placeholder="Adresse complète du client" />
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Coordonnées GPS :</label>
+        <div class="flex gap-4">
+          <input type="text" id="latitude" class="w-1/2 p-2 border rounded" placeholder="Latitude" readonly />
+          <input type="text" id="longitude" class="w-1/2 p-2 border rounded" placeholder="Longitude" readonly />
+        </div>
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Disponibilités hebdomadaires :</label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="dispos-hebdo"></div>
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Créneaux personnalisés :</label>
+        <div id="creneaux-list" class="space-y-2"></div>
+        <button type="button" id="add-creneau" class="mt-2 px-4 py-2 bg-blue-600 text-white rounded">Ajouter un créneau</button>
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Date précise (facultative) :</label>
+        <input type="date" id="date_precise" class="p-2 border rounded">
+      </div>
+      <button type="button" id="envoyer-google" class="px-4 py-2 bg-green-600 text-white rounded">Enregistrer dans Google Sheet</button>
+    </form>
+    <div class="mt-6">
+      <label class="block font-semibold mb-1">Localisation estimée :</label>
+      <div id="map" class="rounded border"></div>
+    </div>
+  </div>
+  <script>
+    const jours = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+    const dispoContainer = document.getElementById("dispos-hebdo");
+    jours.forEach(jour => {
+      dispoContainer.innerHTML += `
+        <div>
+          <label class="block font-medium">${jour}</label>
+          <div class="flex items-center gap-2">
+            <input type="checkbox" name="${jour}_matin" id="${jour}_matin">
+            <label for="${jour}_matin">Matin</label>
+          </div>
+          <div class="flex items-center gap-2">
+            <input type="checkbox" name="${jour}_aprem" id="${jour}_aprem">
+            <label for="${jour}_aprem">Après-midi</label>
+          </div>
+        </div>
+      `;
+    });
+
+    document.getElementById("add-creneau").addEventListener("click", () => {
+      const container = document.getElementById("creneaux-list");
+      container.innerHTML += `<input type="text" name="creneau_personnalise" class="w-full p-2 border rounded" placeholder="Ex : Mardi 10h-12h">`;
+    });
+
+    function collectData() {
+      const form = document.getElementById("disponibilite-form");
+      const data = {
+        client: form.client.value,
+        adresse: form.adresse.value,
+        latitude: document.getElementById("latitude").value,
+        longitude: document.getElementById("longitude").value,
+        disponibilites: {
+          hebdo: {},
+          creneaux_specifiques: [],
+          date_precise: document.getElementById("date_precise").value
+        }
+      };
+      jours.forEach(jour => {
+        data.disponibilites.hebdo[jour] = {
+          matin: form[`${jour}_matin`].checked,
+          apres_midi: form[`${jour}_aprem`].checked
+        };
+      });
+      const creneauxInputs = document.querySelectorAll('input[name="creneau_personnalise"]');
+      creneauxInputs.forEach(input => {
+        if (input.value) data.disponibilites.creneaux_specifiques.push(input.value);
+      });
+      return data;
+    }
+
+    document.getElementById("envoyer-google").addEventListener("click", () => {
+      const data = collectData();
+      fetch("https://script.google.com/macros/s/AKfycbzWMD5zGyrWSAiU7GSLfr2UACXKfts0eG5XO_mtTnP4CSZp79UF-r7ZFH8-FCKP2l5pwA/exec", {
+        method: "POST",
+        body: JSON.stringify(data)
+      })
+      .then(response => response.text())
+      .then(msg => alert("✅ Merci, vos disponibilités ont bien été pris en compte."))
+      .catch(err => {
+        console.error(err);
+        alert("❌ Erreur d'envoi des informations.");
+      });
+    });
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZmFiaWVuZndpOTcyIiwiYSI6ImNtYmNtNHd5ajB5MDYyaXExNXdyOHgwajYifQ.Y90-RyH6pPFTlNpd6ZPBUg';
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [-61.0, 14.6],
+      zoom: 9
+    });
+    let marker;
+    document.getElementById("adresse").addEventListener("blur", () => {
+      const adresse = document.getElementById("adresse").value;
+      if (!adresse) return;
+      fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(adresse)}.json?access_token=${mapboxgl.accessToken}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.features.length === 0) return alert("Adresse introuvable");
+          const [lng, lat] = data.features[0].geometry.coordinates;
+          document.getElementById("latitude").value = lat;
+          document.getElementById("longitude").value = lng;
+          map.flyTo({ center: [lng, lat], zoom: 13 });
+          if (marker) marker.remove();
+          marker = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
+        });
+    });
+  </script>
+</body>
+</html>
