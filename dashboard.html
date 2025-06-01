@@ -46,8 +46,7 @@
                             };
                         }
                         grouped[key].Disponibilites.push(
-                            `${row.Jour} (${row.Matin === 'Oui' ? 'Matin' : ''}${row.Matin === 'Oui' && row["Après-midi"] === 'Oui' ? ' / ' : ''}${row["Après-midi"] === 'Oui' ? 'Après-midi' : ''})`
-                        );
+                            ${row["Matin"] === 'Oui' ? 'Matin' : ''} ${row["Après-midi"] === 'Oui' ? 'Après-midi' : ''}                        );
                     });
 
                     Object.values(grouped).forEach(row => {
