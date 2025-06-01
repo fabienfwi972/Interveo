@@ -37,12 +37,12 @@
                         const key = row.Nom + row.Adresse;
                         if (!grouped[key]) {
                             grouped[key] = {
-                                Nom: row.Nom,
-                                Adresse: row.Adresse,
-                                Latitude: row.Latitude,
-                                Longitude: row.Longitude,
+                                Nom: row["Nom"],
+                                Adresse: row["Adresse"],
+                                Latitude: row["Latitude"],
+                                Longitude: row["Longitude"],
                                 "Date précise": row["Date précise"],
-                                Disponibilites: []
+                                Disponibilités: []
                             };
                         }
                         grouped[key].Disponibilites.push(
