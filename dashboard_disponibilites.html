@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Disponibilités SAV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.6/datatables.min.css"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.6/datatables.min.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div class="max-w-7xl mx-auto px-4 py-6">
+    <h1 class="text-3xl font-bold mb-6">🗂️ Dashboard – Disponibilités Clients SAV</h1>
+    <div class="bg-white p-4 rounded shadow">
+      <table id="dashboard" class="display w-full text-sm">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Adresse</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Date précise</th>
+            <th>Disponibilités</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- Données dynamiques -->
+        </tbody>
+      </table>
+    </div>
+    <button onclick="loadData()" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded">🔄 Recharger</button>
+  </div>
+
+  <script>
+    async function loadData() {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzWMD5zGyrWSAiU7GSLfr2UACXKfts0eG5XO_mtTnP4CSZp79UF-r7ZFH8-FCKP2l5pwA/exec");
+      const data = await response.json();
+      const body = document.getElementById("table-body");
+      body.innerHTML = "";
+      data.forEach(item => {
+        let dispo = Object.entries(item.disponibilites.hebdo).map(([jour, val]) =>
+          `${jour}: ${val.matin ? 'Matin' : ''} ${val.apres_midi ? 'AM' : ''}`
+        ).join("<br>");
+        let creneaux = item.disponibilites.creneaux_specifiques?.join("<br>") || "";
+        let fullDispo = dispo + (creneaux ? "<br><b>Créneaux personnalisés :</b><br>" + creneaux : "");
+        const row = `
+          <tr>
+            <td>${item.client}</td>
+            <td>${item.adresse}</td>
+            <td>${item.latitude}</td>
+            <td>${item.longitude}</td>
+            <td>${item.disponibilites.date_precise || "-"}</td>
+            <td>${fullDispo}</td>
+          </tr>`;
+        body.innerHTML += row;
+      });
+      const table = document.getElementById("dashboard");
+      if (!$.fn.dataTable.isDataTable(table)) {
+        new DataTable(table);
+      }
+    }
+
+    window.onload = loadData;
+  </script>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</body>
+</html>
