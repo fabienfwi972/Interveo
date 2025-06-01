@@ -22,7 +22,7 @@
   <div id="map" class="shadow"></div>
 
   <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZXhhbXBsZXVzZXIiLCJhIjoiY2ttZ2s0a2J3MDFmZTJvbXk0OGxvdmh0bCJ9.w0zYJm7yEzfdfy6FuIfqTA';
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZmFiaWVuZndpOTcyIiwiYSI6ImNtYmNtNHd5ajB5MDYyaXExNXdyOHgwajYifQ.Y90-RyH6pPFTlNpd6ZPBUg'; // Remplace par ta vraie clé Mapbox
 
     const map = new mapboxgl.Map({
       container: 'map',
@@ -32,7 +32,6 @@
     });
 
     let useClustering = true;
-    let sourceData = null;
 
     function loadClientData() {
       fetch("https://script.google.com/macros/s/AKfycbx6wHTCATv8Vp50SPOu7mNyghmVkNg0prNOHMK-sTXE9gaRUD2q03uQdMDIOGj0dECR/exec")
@@ -57,52 +56,49 @@
           };
 
           if (map.getSource('clients')) {
-            map.removeLayer('clusters');
-            map.removeLayer('cluster-count');
-            map.removeLayer('unclustered-point');
-            map.removeSource('clients');
+            map.getSource('clients').setData(geojson);
+          } else {
+            map.addSource('clients', {
+              type: 'geojson',
+              data: geojson,
+              cluster: useClustering,
+              clusterMaxZoom: 14,
+              clusterRadius: 50
+            });
+
+            map.addLayer({
+              id: 'clusters',
+              type: 'circle',
+              source: 'clients',
+              filter: ['has', 'point_count'],
+              paint: {
+                'circle-color': '#3b82f6',
+                'circle-radius': 20
+              }
+            });
+
+            map.addLayer({
+              id: 'cluster-count',
+              type: 'symbol',
+              source: 'clients',
+              filter: ['has', 'point_count'],
+              layout: {
+                'text-field': '{point_count_abbreviated}',
+                'text-size': 12
+              }
+            });
+
+            map.addLayer({
+              id: 'unclustered-point',
+              type: 'circle',
+              source: 'clients',
+              filter: ['!', ['has', 'point_count']],
+              paint: {
+                'circle-color': '#10b981',
+                'circle-radius': 6
+              }
+            });
           }
-
-          map.addSource('clients', {
-            type: 'geojson',
-            data: geojson,
-            cluster: useClustering,
-            clusterMaxZoom: 14,
-            clusterRadius: 50
-          });
-
-          map.addLayer({
-            id: 'clusters',
-            type: 'circle',
-            source: 'clients',
-            filter: ['has', 'point_count'],
-            paint: {
-              'circle-color': '#3b82f6',
-              'circle-radius': 20
-            }
-          });
-
-          map.addLayer({
-            id: 'cluster-count',
-            type: 'symbol',
-            source: 'clients',
-            filter: ['has', 'point_count'],
-            layout: {
-              'text-field': '{point_count_abbreviated}',
-              'text-size': 12
-            }
-          });
-
-          map.addLayer({
-            id: 'unclustered-point',
-            type: 'circle',
-            source: 'clients',
-            filter: ['!', ['has', 'point_count']],
-            paint: {
-              'circle-color': '#10b981',
-              'circle-radius': 6
-            }
-          });
 
           map.on('click', 'unclustered-point', e => {
             const props = e.features[0].properties;
@@ -112,6 +108,9 @@
               .addTo(map);
           });
 
+        }).catch(err => {
+          console.error('Erreur de récupération des données : ', err);
+          alert('Erreur de récupération des données');
         });
     }
 
