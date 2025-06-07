@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire Ticket Intervéo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+    h2 {
+      text-align: center;
+      color: #0b456a;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    button {
+      margin-top: 2rem;
+      padding: 12px;
+      background-color: #179d82;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #127a66;
+    }
+    pre {
+      margin-top: 1rem;
+      background-color: #eef;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 13px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Formulaire Ticket Intervéo</h2>
+    <form id="ticketForm">
+      <label for="client">Nom Client :</label>
+      <input type="text" id="client" name="client" required />
+      <label for="adresse">Adresse :</label>
+      <input type="text" id="adresse" name="adresse" required />
+      <label for="produit">Produit :</label>
+      <input type="text" id="produit" name="produit" required />
+      <label for="gravite">Gravité :</label>
+      <select id="gravite" name="gravite" required>
+        <option value="Faible">Faible</option>
+        <option value="Moyenne">Moyenne</option>
+        <option value="Élevée">Élevée</option>
+      </select>
+      <label for="description">Description :</label>
+      <textarea id="description" name="description" rows="4"></textarea>
+      <button type="submit">Envoyer le ticket</button>
+    </form>
+    <pre id="resultat"></pre>
+  </div>
+  <script>
+    document.getElementById('ticketForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const json = {};
+      formData.forEach((value, key) => {
+        json[key] = value;
+      });
+
+      fetch("https://script.google.com/macros/s/AKfycbw0gueZg2mveMhA1-lk-t3_yKR40frvQnwX-uTZEJszg3uQapxD7EXZeC49PSyNBDHl3w/exec", {
+        method: "POST",
+        body: JSON.stringify(json),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("resultat").textContent =
+          data.result === "success"
+            ? `✅ Ticket créé avec l'ID : ${data.id}`
+            : `❌ Erreur : ${data.message}`;
+      })
+      .catch(error => {
+        document.getElementById("resultat").textContent = "❌ Erreur JS : " + error.message;
+      });
+    });
+  </script>
+</body>
+</html>
