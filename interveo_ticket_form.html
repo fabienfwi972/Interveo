@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire Ticket Intervéo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #f5f7fa;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #22688f;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+    input, textarea, select, button {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #2a9d8f;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      margin-top: 1.5rem;
+    }
+    button:hover {
+      background-color: #21867a;
+    }
+    pre {
+      background: #eef;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Formulaire Ticket Intervéo</h2>
+  <form id="ticketForm">
+    <label>Nom Client :
+      <input type="text" name="client" required>
+    </label>
+    <label>Adresse :
+      <input type="text" name="adresse">
+    </label>
+    <label>Produit :
+      <input type="text" name="produit">
+    </label>
+    <label>Gravité :
+      <select name="gravite">
+        <option>Faible</option>
+        <option>Moyen</option>
+        <option>Urgent</option>
+      </select>
+    </label>
+    <label>Description :
+      <textarea name="description" rows="4"></textarea>
+    </label>
+    <button type="submit">Envoyer le ticket</button>
+  </form>
+
+  <pre id="result"></pre>
+
+  <script>
+    document.getElementById('ticketForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(e.target);
+      const json = {};
+
+      formData.forEach((value, key) => {
+        json[key] = value;
+      });
+
+      fetch("https://script.google.com/macros/s/AKfycbxttf8kjpfRQ95NUwxotbTVgJ9WYAC6Et1YUuycwzMXW1FUDY8fxqQbpkRUgM3WFpWENQ/exec", {
+        method: "POST",
+        body: JSON.stringify(json),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("result").textContent = JSON.stringify(data, null, 2);
+      })
+      .catch(error => {
+        document.getElementById("result").textContent = "Erreur : " + error;
+      });
+    });
+  </script>
+</body>
+</html>
