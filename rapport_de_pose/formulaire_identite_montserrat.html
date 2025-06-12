@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Rapport de pose</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #ffffff;
+      border-bottom: 2px solid #e0e0e0;
+    }
+    .header img {
+      height: 60px;
+      margin-right: 1rem;
+    }
+    .header h2 {
+      color: #333;
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+    h3 {
+      border-bottom: 2px solid #FFA500;
+      padding-bottom: 5px;
+      margin-top: 2rem;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 500;
+    }
+    textarea, select, input[type="email"], input[type="text"], input[type="date"], input[type="file"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .comment-field {
+      margin-top: 0.5rem;
+    }
+    button {
+      margin-top: 2rem;
+      padding: 0.75rem 2rem;
+      background-color: #FF6F00;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #e65c00;
+    }
+  
+.comment-field textarea,
+textarea[name="observations_client"],
+textarea[name="observations_poseur"],
+textarea[name="articles_installes"] {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #333;
+}
+
+  
+.zone-identite label,
+.zone-identite input,
+.zone-identite select {
+  font-family: 'Montserrat', sans-serif;
+}
+
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="logo_aviva_web.png" alt="Logo Aviva">
+    <h2>Rapport de Fin de Chantier</h2>
+  </div>
+  <div class="container">
+    <form id="rapportForm">
+      <div class="zone-identite">
+<label>Date des travaux :
+        <input type="date" name="date_travaux" required>
+      </label>
+      <label>Poseur :
+        <select name="poseur_email" required>
+          <option value="belkai97200@gmail.com">Fabien</option>
+          <option value="mendle.marchand@cuisines-aviva.com">Mendel</option>
+        </select>
+      </label>
+      <label>Nom du client :
+        <input type="text" name="nom_client" required>
+      </label>
+      <label>Email du client :
+        <input type="email" name="client_email" required>
+      </label>
+<h3>MEUBLES</h3>
+
+    <div class="select-group">
+      <label>L'implantation des meubles est conforme au plan signé
+        <select name="meubles_0" onchange="toggleCommentField(this, 'meubles_0_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="meubles_0_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="meubles_0_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    
+    <div class="select-group">
+      <label>Les meubles sont correctement positionnés
+        <select name="meubles_1" onchange="toggleCommentField(this, 'meubles_1_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="meubles_1_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="meubles_1_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    
+    <div class="select-group">
+      <label>Les façades et tiroirs sont correctement ajustés
+        <select name="meubles_2" onchange="toggleCommentField(this, 'meubles_2_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="meubles_2_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="meubles_2_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    
+    <div class="select-group">
+      <label>Les caches-lumières et corniches sont correctement installés (si fourni par AVIVA)
+        <select name="meubles_3" onchange="toggleCommentField(this, 'meubles_3_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="meubles_3_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="meubles_3_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    
+    <div class="select-group">
+      <label>Les plans de travail sont correctement installés
+        <select name="meubles_4" onchange="toggleCommentField(this, 'meubles_4_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="meubles_4_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="meubles_4_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    
+    <div class="select-group">
+      <label>Les plinthes sont correctement installées
+        <select name="meubles_5" onchange="toggleCommentField(this, 'meubles_5_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="meubles_5_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="meubles_5_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    <h3>ÉLECTROMÉNAGER</h3>
+
+    <div class="select-group">
+      <label>La plaque est correctement installée et raccordée
+        <select name="électroménager_0" onchange="toggleCommentField(this, 'électroménager_0_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="électroménager_0_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="électroménager_0_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    
+    <div class="select-group">
+      <label>Le four est correctement installé et raccordé
+        <select name="électroménager_1" onchange="toggleCommentField(this, 'électroménager_1_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="électroménager_1_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="électroménager_1_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    
+    <div class="select-group">
+      <label>Le micro-onde est correctement installé et raccordé
+        <select name="électroménager_2" onchange="toggleCommentField(this, 'électroménager_2_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="électroménager_2_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="électroménager_2_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    
+    <div class="select-group">
+      <label>Le lave-vaisselle est correctement installé et raccordé
+        <select name="électroménager_3" onchange="toggleCommentField(this, 'électroménager_3_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="électroménager_3_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="électroménager_3_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    
+    <div class="select-group">
+      <label>La hotte est correctement installée et raccordée
+        <select name="électroménager_4" onchange="toggleCommentField(this, 'électroménager_4_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="électroménager_4_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="électroménager_4_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    
+    <div class="select-group">
+      <label>Le réfrigérateur est correctement installé et raccordé
+        <select name="électroménager_5" onchange="toggleCommentField(this, 'électroménager_5_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="électroménager_5_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="électroménager_5_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    
+    <div class="select-group">
+      <label>L'évier est correctement installé et raccordé
+        <select name="électroménager_6" onchange="toggleCommentField(this, 'électroménager_6_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="électroménager_6_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="électroménager_6_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    
+    <div class="select-group">
+      <label>Ménager divers (LL, cafetière...)</label>
+
+<label>Articles installés :
+  <textarea name="articles_installes" placeholder="Indiquez les articles installés..."></textarea>
+</label>
+        <select name="électroménager_7" onchange="toggleCommentField(this, 'électroménager_7_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="électroménager_7_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="électroménager_7_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    <h3>PRESTATION DU POSEUR</h3>
+
+    <div class="select-group">
+      <label>Êtes-vous satisfait de la pose
+        <select name="prestation_du_poseur_0" onchange="toggleCommentField(this, 'prestation_du_poseur_0_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="prestation_du_poseur_0_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="prestation_du_poseur_0_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    
+    <div class="select-group">
+      <label>Le chantier est impeccablement nettoyé lors du départ du poseur
+        <select name="prestation_du_poseur_1" onchange="toggleCommentField(this, 'prestation_du_poseur_1_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="prestation_du_poseur_1_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="prestation_du_poseur_1_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    
+    <div class="select-group">
+      <label>Le poseur s'est présenté à l'heure et au jour convenus
+        <select name="prestation_du_poseur_2" onchange="toggleCommentField(this, 'prestation_du_poseur_2_comment')">
+          <option value="">-- Sélectionner --</option>
+          <option value="Conforme">✅ Conforme</option>
+          <option value="Non conforme">❌ Non conforme</option>
+          <option value="À la charge du client">⚠️ À la charge du client</option>
+        </select>
+      </label>
+      <div class="comment-field" id="prestation_du_poseur_2_comment" style="display:none;">
+        <label>Détail à la charge du client :
+          <textarea name="prestation_du_poseur_2_comment_text"></textarea>
+        </label>
+      </div>
+    </div>
+    
+      <label>Observations du client :
+        <textarea name="observations_client"></textarea>
+      </label>
+      <label>Observations du poseur :
+        <textarea name="observations_poseur"></textarea>
+      </label>
+      <label>Photos de fin de chantier :
+        <input type="file" name="photos[]" multiple>
+      </label>
+      <label>Signature du client :
+        <input type="text" name="signature_client" placeholder="Nom, Prénom" required>
+      </label>
+      <button type="submit">Envoyer le rapport</button>
+    </form>
+    <script>
+      const form = document.getElementById('rapportForm');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const response = await fetch(window.location.href, {
+          method: 'POST',
+          body: formData
+        });
+        const result = await response.text();
+        alert(result);
+      });
+    
+    function toggleCommentField(selectElement, commentFieldId) {
+      const selectedValue = selectElement.value;
+      const commentDiv = document.getElementById(commentFieldId);
+      if (selectedValue === "À la charge du client") {
+        commentDiv.style.display = "block";
+      } else {
+        commentDiv.style.display = "none";
+      }
+    }
+    </script>
+    
+  </div>
+</body>
+</html>
