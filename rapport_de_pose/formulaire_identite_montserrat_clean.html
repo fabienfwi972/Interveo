@@ -407,32 +407,7 @@ textarea[name="articles_installes"] {
       </label>
       <button type="submit">Envoyer le rapport</button>
     </form>
-    <script>
-      const form = document.getElementById('rapportForm');
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const response = await fetch(window.location.href, {
-          method: 'POST',
-          body: formData
-        });
-        const result = await response.text();
-        alert(result);
-      });
     
-    function toggleCommentField(selectElement, commentFieldId) {
-      const selectedValue = selectElement.value;
-      const commentDiv = document.getElementById(commentFieldId);
-      if (selectedValue === "À la charge du client") {
-        commentDiv.style.display = "block";
-      } else {
-        commentDiv.style.display = "none";
-      }
-    }
-    </script>
-    
-  </div>
-
 <script>
   const form = document.getElementById('rapportForm');
   form.addEventListener('submit', async (e) => {
