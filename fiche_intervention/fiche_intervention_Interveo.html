@@ -1291,7 +1291,7 @@ async function exporterEtEnvoyer() {
     formData.append("file", base64data);
     formData.append("filename", opt.filename);
 
-    const response = await fetch("https://script.google.com/macros/s/AKfycbxuZj8OctrMwvZfPXi2tsnrGMohb98y8VCQW6Jlnypd6ngDDSgmQaxg8YXn3d_Olvtw/exec", {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbxQdlwT1hA4ySj3I4LcWz2h-qrY2k5KyJAawaIxzu4MOsfNGPnl-F5GmY74ws8oEWQ/exec", {
       method: "POST",
       body: formData
     });
