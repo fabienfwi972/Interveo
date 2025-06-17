@@ -1357,13 +1357,10 @@ function finaliserIntervention() {
     consommables: conso.join(" / ")
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbzTiov2GlqCwf55g15zN9RH2-jevda0RtYFVjPqpS2EUa9bteN_Bi_NnonZy09nbpi4/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbwOiSeShWKoxhCFLpht43a9HdbgA_VHrRKRYGMKeTMqt3blSkGmQoC2WJFyAxybgst8/exec", {
     method: "POST",
     body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
+    })
   .then(res => res.text())
   .then(txt => alert(txt))
   .catch(err => alert("❌ Erreur : " + err));
