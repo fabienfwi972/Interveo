@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<title>Fiche d'Intervention - Intervéo</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Montserrat', sans-serif; padding: 20px; background-color: #f5f9ff; }
+    h1 { color: #eeb414; }
+    .task { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 8px; background-color: #fff; }
+    .task-header { display: flex; justify-content: space-between; align-items: center; }
+    .controls { display: flex; gap: 10px; margin-top: 10px; }
+    button {
+      padding: 8px 16px;
+      background-color: #ffbe0a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #f3c42b;
+    }
+    button.compact {
+      padding: 4px 10px;
+      font-size: 1rem;
+      width: 32px;
+      height: 32px;
+    }
+    button.qty {
+      padding: 2px 8px;
+      font-size: 1.2rem;
+      width: 28px;
+      height: 28px;
+      background-color: #f3c96e;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .quantity { display: inline-flex; align-items: center; gap: 5px; }
+  
+.section {
+  background: #f9fcff;
+  border: 1px solid #dbe8f4;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+body {
+  background-color: #f3f3f3;
+  font-family: 'Montserrat', sans-serif;
+}
+
+header {
+  background-color: #ffffff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid #F5A623;
+}
+
+header img {
+  height: 50px;
+}
+
+header h1 {
+  color: #fabd16;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.section {
+  background: #ffffff;
+  border-left: 6px solid #F5A623;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+button {
+  padding: 10px 16px;
+  background-color: #F5A623;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+button:hover {
+  background-color: #e68c00;
+}
+
+.qty {
+  padding: 4px 10px;
+  font-size: 1.1rem;
+  width: 32px;
+  height: 32px;
+  background-color: #F5A623;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+body {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+header {
+  background-color: #1e1e1e;
+  border-bottom: 4px solid #F5A623;
+}
+
+.section {
+  background: #1e1e1e;
+  border-left: 6px solid #F5A623;
+  box-shadow: none;
+}
+
+input[type="text"], select {
+  background-color: #3f3f3f;
+  color: #ffffff;
+  border: 1px solid #F5A623;
+}
+
+button {
+  background-color: #F5A623;
+  color: white;
+}
+
+button:hover {
+  background-color: #e68c00;
+}
+
+.task {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+}
+
+h1, h2, h3, label {
+  color: #ffffff;
+}
+
+body {
+  background-color: #121212;
+}
+
+.section {
+  background: #ffffff;
+  border-left: 6px solid #F5A623;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  color: #000000;
+}
+
+.task {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  color: #000000;
+}
+
+input[type="text"], select {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #F5A623;
+}
+
+h1, h2, h3, label {
+  color: #ffffff;
+}
+
+body {
+  background-color: #3f3f3f;
+  color: #f0f0f0;
+}
+
+header {
+  background-color: #e6f0fa;
+  border-bottom: 4px solid #F5A623;
+}
+
+.section {
+  background: #8c8c8c;
+  border-left: 6px solid #F5A623;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  color: #000000;
+}
+
+.task {
+  background-color: #e4e4e4;
+  border: 1px solid #ccc;
+  color: #000000;
+}
+
+input[type="text"], select {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #F5A623;
+}
+
+h1, h2, h3, label {
+  color: #000000;
+}
+
+header h1 {
+  color: #F5A623;
+  font-size: 2.2rem;
+  text-align: center;
+  flex: 1;
+  font-weight: 600;
+}
+
+header h1 {
+  color: #ffffff;
+  font-size: 2.5rem;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script><style>
+@media print {
+  body {
+    background: white !important;
+    margin: 0 !important;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .task, .section, .pdf-wrapper {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .pdf-wrapper {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+  }
+
+  button, .no-print {
+    display: none !important;
+  }
+
+  .logo img {
+    max-width: 200px !important;
+    height: auto !important;
+  }
+
+  h1, h2 {
+    font-size: 20px !important;
+  }
+}
+</style></head>
+<body><div class="pdf-wrapper"><img src="Interveo_Logo_EnTete.png" style="width: 100%; max-width: 100%; display: block; margin-bottom: 10px;"/><header style="background-color: transparent; padding: 20px 0; display: flex; justify-content: center; align-items: center;"><div style="font-size: 2.5rem; font-weight: 600; color: #ffffff;">Fiche d’intervention Intervéo</div></header>
+<div class="section"><h2>📆 Date de l’intervention</h2><p id="intervention-date" style="font-size: 1.2rem; font-weight: bold; margin-top: 10px;"></p></div><div class="section"><label for="nomPose"><strong>Pose :</strong></label><input id="nomPose" name="pose" placeholder="Ex : Mme DUPONT - Cuisine" style="
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+" type="text"/><br/></div><div style="margin-bottom: 20px; background: #e1e1e1; padding: 10px; border-radius: 6px;"><label style="display: block; font-weight: bold; margin-bottom: 5px;">👤 Nom du poseur :</label><input name="poseur" style="padding: 6px; border-radius: 4px; width: 100%; border: 1px solid #ccc;" type="text"/></div>
+<br/>
+<div id="global-timer-container" style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+<strong>⏱️ Temps total d'intervention :</strong>
+<span id="global-timer">0m 0s</span>
+<button id="global-btn" onclick="toggleGlobalTimer()">Démarrer</button>
+<button onclick="resetGlobalTimer()">Réinitialiser</button>
+</div>
+<div class="section"><h2>Liste des Tâches</h2><div id="tasks-container">
+<!-- Bloc dynamique généré -->
+<!-- Voici un exemple sur les premières tâches : -->
+<div class="task">
+<div class="task-header">
+<strong>MOC_01 - Mise en place</strong>
+<div id="timer-0">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-0" onclick="startTimer('0')">Démarrer</button>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>MOC_02 - Pose à blanc Recherche Solution technique</strong>
+<div id="timer-1">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-1" onclick="startTimer('1')">Démarrer</button>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>MOC_03 - Pause</strong>
+<div id="timer-2">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-2" onclick="startTimer('2')">Démarrer</button>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>MOC_04 - Nettoyage et fin de chantier</strong>
+<div id="timer-3">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-3" onclick="startTimer('3')">Démarrer</button>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400001 - Pose de Meuble Bas</strong>
+<div id="timer-4">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-4" onclick="startTimer('4')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('4', -1)">–</button>
+<span id="qty-4">0</span><span>U</span>
+<button class="qty" onclick="changeQty('4', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400002 - Pose Meuble Haut</strong>
+<div id="timer-5">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-5" onclick="startTimer('5')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('5', -1)">–</button>
+<span id="qty-5">0</span><span>U</span>
+<button class="qty" onclick="changeQty('5', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400003 - Pose Meuble Colonne</strong>
+<div id="timer-6">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-6" onclick="startTimer('6')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('6', -1)">–</button>
+<span id="qty-6">0</span><span>U</span>
+<button class="qty" onclick="changeQty('6', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400004 - Pose de Socle</strong>
+<div id="timer-7">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-7" onclick="startTimer('7')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('7', -1)">–</button>
+<span id="qty-7">0</span><span>U</span>
+<button class="qty" onclick="changeQty('7', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400005 - Pose de Fileur</strong>
+<div id="timer-8">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-8" onclick="startTimer('8')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('8', -1)">–</button>
+<span id="qty-8">0</span><span>U</span>
+<button class="qty" onclick="changeQty('8', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400006 - Pose de Joue</strong>
+<div id="timer-9">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-9" onclick="startTimer('9')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('9', -1)">–</button>
+<span id="qty-9">0</span><span>U</span>
+<button class="qty" onclick="changeQty('9', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400007 - Pose de Fileur Haut</strong>
+<div id="timer-10">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-10" onclick="startTimer('10')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('10', -1)">–</button>
+<span id="qty-10">0</span><span>U</span>
+<button class="qty" onclick="changeQty('10', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400008 - Pose Etagère</strong>
+<div id="timer-11">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-11" onclick="startTimer('11')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('11', -1)">–</button>
+<span id="qty-11">0</span><span>U</span>
+<button class="qty" onclick="changeQty('11', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400009 - Pose Miroir</strong>
+<div id="timer-12">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-12" onclick="startTimer('12')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('12', -1)">–</button>
+<span id="qty-12">0</span><span>U</span>
+<button class="qty" onclick="changeQty('12', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400010 - Montage Table</strong>
+<div id="timer-13">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-13" onclick="startTimer('13')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('13', -1)">–</button>
+<span id="qty-13">0</span><span>U</span>
+<button class="qty" onclick="changeQty('13', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400011 - Enlèvement des Déchets</strong>
+<div id="timer-14">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-14" onclick="startTimer('14')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('14', -1)">–</button>
+<span id="qty-14">0</span><span>U</span>
+<button class="qty" onclick="changeQty('14', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400012 - Pose plaque Anti-chaleur</strong>
+<div id="timer-15">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-15" onclick="startTimer('15')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('15', -1)">–</button>
+<span id="qty-15">0</span><span>U</span>
+<button class="qty" onclick="changeQty('15', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400013 - Pose Kipps</strong>
+<div id="timer-16">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-16" onclick="startTimer('16')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('16', -1)">–</button>
+<span id="qty-16">0</span><span>U</span>
+<button class="qty" onclick="changeQty('16', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400014 - Pose Pied de Table</strong>
+<div id="timer-17">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-17" onclick="startTimer('17')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('17', -1)">–</button>
+<span id="qty-17">0</span><span>U</span>
+<button class="qty" onclick="changeQty('17', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400015 - Pose d'équerre</strong>
+<div id="timer-18">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-18" onclick="startTimer('18')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('18', -1)">–</button>
+<span id="qty-18">0</span><span>U</span>
+<button class="qty" onclick="changeQty('18', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400016 - Pose de Gorge</strong>
+<div id="timer-19">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-19" onclick="startTimer('19')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('19', -1)">–</button>
+<span id="qty-19">0</span><span>U</span>
+<button class="qty" onclick="changeQty('19', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400017 - Pose Systeme Ouverture Range Couvert</strong>
+<div id="timer-20">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-20" onclick="startTimer('20')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('20', -1)">–</button>
+<span id="qty-20">0</span><span>U</span>
+<button class="qty" onclick="changeQty('20', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400018 - Pose Prise dans Crédence</strong>
+<div id="timer-21">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-21" onclick="startTimer('21')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('21', -1)">–</button>
+<span id="qty-21">0</span><span>U</span>
+<button class="qty" onclick="changeQty('21', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400019 - Pose de Spot</strong>
+<div id="timer-22">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-22" onclick="startTimer('22')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('22', -1)">–</button>
+<span id="qty-22">0</span><span>U</span>
+<button class="qty" onclick="changeQty('22', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400020 - Pose de Gorge Éclair</strong>
+<div id="timer-23">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-23" onclick="startTimer('23')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('23', -1)">–</button>
+<span id="qty-23">0</span><span>U</span>
+<button class="qty" onclick="changeQty('23', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400021 - Pose Bloque Prise Plan</strong>
+<div id="timer-24">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-24" onclick="startTimer('24')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('24', -1)">–</button>
+<span id="qty-24">0</span><span>U</span>
+<button class="qty" onclick="changeQty('24', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400022 - Pose Four</strong>
+<div id="timer-25">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-25" onclick="startTimer('25')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('25', -1)">–</button>
+<span id="qty-25">0</span><span>U</span>
+<button class="qty" onclick="changeQty('25', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400023 - Pose Micro-Onde</strong>
+<div id="timer-26">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-26" onclick="startTimer('26')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('26', -1)">–</button>
+<span id="qty-26">0</span><span>U</span>
+<button class="qty" onclick="changeQty('26', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400024 - Pose Plaque Elec/Gaz</strong>
+<div id="timer-27">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-27" onclick="startTimer('27')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('27', -1)">–</button>
+<span id="qty-27">0</span><span>U</span>
+<button class="qty" onclick="changeQty('27', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400025 - Pose Hotte Murale</strong>
+<div id="timer-28">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-28" onclick="startTimer('28')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('28', -1)">–</button>
+<span id="qty-28">0</span><span>U</span>
+<button class="qty" onclick="changeQty('28', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400026 - Pose de Lave-Vaisselle Intégrable</strong>
+<div id="timer-29">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-29" onclick="startTimer('29')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('29', -1)">–</button>
+<span id="qty-29">0</span><span>U</span>
+<button class="qty" onclick="changeQty('29', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400027 - Pose de Réfrigérateur Intégrable</strong>
+<div id="timer-30">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-30" onclick="startTimer('30')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('30', -1)">–</button>
+<span id="qty-30">0</span><span>U</span>
+<button class="qty" onclick="changeQty('30', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400028 - Pose de Frigo Pose Libre</strong>
+<div id="timer-31">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-31" onclick="startTimer('31')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('31', -1)">–</button>
+<span id="qty-31">0</span><span>U</span>
+<button class="qty" onclick="changeQty('31', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400029 - Pose de Hotte sur Plan de Travail</strong>
+<div id="timer-32">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-32" onclick="startTimer('32')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('32', -1)">–</button>
+<span id="qty-32">0</span><span>U</span>
+<button class="qty" onclick="changeQty('32', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400030 - Pose de Hotte dans Plafond Encastrer</strong>
+<div id="timer-33">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-33" onclick="startTimer('33')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('33', -1)">–</button>
+<span id="qty-33">0</span><span>U</span>
+<button class="qty" onclick="changeQty('33', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400031 - Pose de Hotte Suspendu</strong>
+<div id="timer-34">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-34" onclick="startTimer('34')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('34', -1)">–</button>
+<span id="qty-34">0</span><span>U</span>
+<button class="qty" onclick="changeQty('34', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400032 - Pose de Lave Vaisselle Pose Libre</strong>
+<div id="timer-35">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-35" onclick="startTimer('35')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('35', -1)">–</button>
+<span id="qty-35">0</span><span>U</span>
+<button class="qty" onclick="changeQty('35', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400033 - Pose de Plaque et Hotte Intégrable</strong>
+<div id="timer-36">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-36" onclick="startTimer('36')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('36', -1)">–</button>
+<span id="qty-36">0</span><span>U</span>
+<button class="qty" onclick="changeQty('36', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400034 - Pose de Plan de Travail</strong>
+<div id="timer-37">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-37" onclick="startTimer('37')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('37', -1)">–</button>
+<span id="qty-37">0</span><span>mL</span>
+<button class="qty" onclick="changeQty('37', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400035 - Pose de Crédence</strong>
+<div id="timer-38">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-38" onclick="startTimer('38')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('38', -1)">–</button>
+<span id="qty-38">0</span><span>mL</span>
+<button class="qty" onclick="changeQty('38', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400036 - Pose Cave à Vin</strong>
+<div id="timer-39">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-39" onclick="startTimer('39')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('39', -1)">–</button>
+<span id="qty-39">0</span><span>U</span>
+<button class="qty" onclick="changeQty('39', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400037 - Pose de Machine à Café Intégrable</strong>
+<div id="timer-40">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-40" onclick="startTimer('40')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('40', -1)">–</button>
+<span id="qty-40">0</span><span>U</span>
+<button class="qty" onclick="changeQty('40', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400038 - Pose de Lave-Linge Intégrable</strong>
+<div id="timer-41">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-41" onclick="startTimer('41')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('41', -1)">–</button>
+<span id="qty-41">0</span><span>U</span>
+<button class="qty" onclick="changeQty('41', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400039 - Pose de Lave-Linge Pose Libre</strong>
+<div id="timer-42">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-42" onclick="startTimer('42')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('42', -1)">–</button>
+<span id="qty-42">0</span><span>U</span>
+<button class="qty" onclick="changeQty('42', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400040 - Pose de Sèche-Linge Pose Libre</strong>
+<div id="timer-43">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-43" onclick="startTimer('43')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('43', -1)">–</button>
+<span id="qty-43">0</span><span>U</span>
+<button class="qty" onclick="changeQty('43', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400041 - Pose de Frigo US</strong>
+<div id="timer-44">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-44" onclick="startTimer('44')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('44', -1)">–</button>
+<span id="qty-44">0</span><span>U</span>
+<button class="qty" onclick="changeQty('44', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400042 - Pose de Piano</strong>
+<div id="timer-45">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-45" onclick="startTimer('45')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('45', -1)">–</button>
+<span id="qty-45">0</span><span>U</span>
+<button class="qty" onclick="changeQty('45', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400043 - Pose et Raccordement d'Évier et Mitigeur</strong>
+<div id="timer-46">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-46" onclick="startTimer('46')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('46', -1)">–</button>
+<span id="qty-46">0</span><span>U</span>
+<button class="qty" onclick="changeQty('46', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400044 - Pose de Caisson de Dressing</strong>
+<div id="timer-47">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-47" onclick="startTimer('47')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('47', -1)">–</button>
+<span id="qty-47">0</span><span>mL</span>
+<button class="qty" onclick="changeQty('47', 1)">+</button>
+</div>
+</div>
+</div>
+<div class="task">
+<div class="task-header">
+<strong>O340400045 - Pose Pied de Table Rectangulaire</strong>
+<div id="timer-48">0m 0s</div>
+</div>
+<div class="controls">
+<button id="btn-48" onclick="startTimer('48')">Démarrer</button>
+<div class="quantity">
+<button class="qty" onclick="changeQty('48', -1)">–</button>
+<span id="qty-48">0</span><span>U</span>
+<button class="qty" onclick="changeQty('48', 1)">+</button>
+</div>
+</div>
+</div>
+</div><button onclick="addManualTask()" style="
+  margin: 12px 0;
+  padding: 8px 16px;
+  background-color: #ff6c0a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+">
+  ➕ Ajouter une tâche manuelle
+</button><br/></div>
+<div class="section"><h2>Consommables utilisés</h2><div id="consommables-container">
+<div class="task" id="consommable-fixed-1">
+<div class="task-header">
+<strong>Silicone Sanitaire Translucide</strong>
+</div>
+<div class="controls">
+<div class="quantity">
+<button class="qty" onclick="changeQty('fixed1', -1)">–</button>
+<span id="qty-fixed1">0</span>
+<button class="qty" onclick="changeQty('fixed1', 1)">+</button>
+<span style="margin-left: 8px;">U</span>
+</div>
+</div>
+</div>
+<div class="task" id="consommable-fixed-2">
+<div class="task-header">
+<strong>Silicone Sanitaire Blanc</strong>
+</div>
+<div class="controls">
+<div class="quantity">
+<button class="qty" onclick="changeQty('fixed2', -1)">–</button>
+<span id="qty-fixed2">0</span>
+<button class="qty" onclick="changeQty('fixed2', 1)">+</button>
+<span style="margin-left: 8px;">U</span>
+</div>
+</div>
+</div>
+<div class="task" id="consommable-fixed-3">
+<div class="task-header">
+<strong>Colle Bois</strong>
+</div>
+<div class="controls">
+<div class="quantity">
+<button class="qty" onclick="changeQty('fixed3', -1)">–</button>
+<span id="qty-fixed3">0</span>
+<button class="qty" onclick="changeQty('fixed3', 1)">+</button>
+<span style="margin-left: 8px;">mL</span>
+</div>
+</div>
+</div>
+<div class="task" id="consommable-fixed-4">
+<div class="task-header">
+<strong>Cheville plastique</strong>
+</div>
+<div class="controls">
+<div class="quantity">
+<button class="qty" onclick="changeQty('fixed4', -1)">–</button>
+<span id="qty-fixed4">0</span>
+<button class="qty" onclick="changeQty('fixed4', 1)">+</button>
+<span style="margin-left: 8px;">U</span>
+</div>
+</div>
+</div>
+</div><br/><button onclick="addConsommableCard()" style="margin: 12px 0;padding: 8px 16px;background-color: #ff6c0a;color: white;border: none;border-radius: 6px;font-size: 1rem;cursor: pointer;">+ Ajouter un consommable</button></div><div class="section" style="text-align:center;"><button id="btn-finaliser" onclick="confirmFinalisation()" style="padding: 14px 28px; font-size: 1.1rem; font-weight: bold;">✅ Finaliser l’intervention</button><button id="btn-unlock" onclick="unlockForm()" style="margin-left: 10px; padding: 14px 28px; font-size: 1.1rem; font-weight: bold;">🔓 Modifier de nouveau</button></div></div><script>
+// Chrono général
+let globalRunning = false;
+let globalSeconds = 0;
+let globalInterval = null;
+
+function toggleGlobalTimer() {
+  const timer = document.getElementById("global-timer");
+  const btn = document.getElementById("global-btn");
+
+  if (!globalRunning) {
+    globalInterval = setInterval(() => {
+      globalSeconds++;
+      let mins = Math.floor(globalSeconds / 60);
+      let secs = globalSeconds % 60;
+      timer.innerText = `${mins}m ${secs}s`;
+    }, 1000);
+    globalRunning = true;
+    btn.innerText = "Pause";
+  } else {
+    clearInterval(globalInterval);
+    globalRunning = false;
+    btn.innerText = "Reprendre";
+  }
+}
+
+function resetGlobalTimer() {
+  clearInterval(globalInterval);
+  globalRunning = false;
+  globalSeconds = 0;
+  document.getElementById("global-timer").innerText = "0m 0s";
+  document.getElementById("global-btn").innerText = "Démarrer";
+}
+
+// Chrono tâches
+function startTimer(id) {
+  const timer = document.getElementById("timer-" + id);
+  const btn = document.getElementById("btn-" + id);
+  if (!timer.dataset.seconds) timer.dataset.seconds = 0;
+  if (!timer.dataset.running || timer.dataset.running === "false") {
+    timer.dataset.running = "true";
+    btn.innerText = "Pause";
+    timer.dataset.interval = setInterval(() => {
+      timer.dataset.seconds++;
+      let mins = Math.floor(timer.dataset.seconds / 60);
+      let secs = timer.dataset.seconds % 60;
+      timer.innerText = mins + "m " + secs + "s";
+    }, 1000);
+  } else {
+    timer.dataset.running = "false";
+    clearInterval(timer.dataset.interval);
+    btn.innerText = "Reprendre";
+  }
+}
+
+// Ajout Quantité
+function changeQty(id, delta) {
+  const qtyElem = document.getElementById("qty-" + id);
+  if (!qtyElem) return;
+
+  let currentText = qtyElem.innerText.replace(',', '.');
+  let val = parseFloat(currentText);
+  if (isNaN(val)) val = 0;
+
+  let step = 1;
+
+  switch (id) {
+    case '37':
+    case '38':
+    case '47':
+      step = 0.1;
+      break;
+    case "fixed1":
+    case "fixed2":
+      step = 0.25;
+      break;
+    case "fixed3":
+      step = 10;
+      break;
+    default:
+      step = 1;
+      break;
+  }
+
+  val += delta * step;
+  if (val < 0) val = 0;
+
+  const isFloat = !Number.isInteger(step) || step < 1;
+  const displayed = isFloat ? val.toFixed(2).replace('.', ',') : Math.round(val);
+
+  qtyElem.innerText = displayed;
+}
+
+// Ajout Tâches
+let manualTaskIndex = 1000;
+
+function addManualTask() {
+  const container = document.getElementById("tasks-container"); // à adapter selon ton conteneur réel
+
+  const div = document.createElement("div");
+  div.className = "task";
+  div.id = `manual-task-${manualTaskIndex}`;
+
+  div.innerHTML = `
+    <div class="task-header">
+      <input type="text" placeholder="Nom de la tâche" style="flex:1; padding: 5px;" />
+      <div id="timer-m${manualTaskIndex}">0m 0s</div>
+      <button onclick="removeManualTask(${manualTaskIndex})" style="margin-left: 10px;">🗑️</button>
+    </div>
+    <div class="controls">
+      <button onclick="startTimer('m${manualTaskIndex}')" id="btn-m${manualTaskIndex}">Démarrer</button>
+      <div class="quantity">
+        <button onclick="changeQty('m${manualTaskIndex}', -1)">–</button>
+        <span id="qty-m${manualTaskIndex}">0</span>
+        <button onclick="changeQty('m${manualTaskIndex}', 1)">+</button>
+      </div>
+    </div>
+  `;
+
+  container.appendChild(div);
+  manualTaskIndex++;
+}
+
+function removeManualTask(index) {
+  const elem = document.getElementById(`manual-task-${index}`);
+  if (elem) elem.remove();
+}
+
+
+
+// Ajout Consommable
+let consommableIndex = 100; // pour ne pas mélanger avec fixed1, fixed2...
+
+function addConsommableCard() {
+  const container = document.getElementById("consommables-container");
+
+  const div = document.createElement("div");
+  div.className = "task";
+  div.id = `consommable-${consommableIndex}`;
+
+  div.innerHTML = `
+    <div class="task-header">
+      <input type="text" placeholder="Nom du consommable" style="flex:1; padding: 5px;" />
+      <button onclick="removeConsommable(${consommableIndex})" style="margin-left: 10px;">🗑️</button>
+    </div>
+    <div class="controls">
+      <div class="quantity">
+        <button onclick="changeQty('c${consommableIndex}', -1)">–</button>
+        <span id="qty-c${consommableIndex}">0</span>
+        <button onclick="changeQty('c${consommableIndex}', 1)">+</button>
+        <span style="margin-left: 8px;">U</span>
+      </div>
+    </div>
+  `;
+
+  container.appendChild(div);
+  consommableIndex++;
+}
+
+function removeConsommable(index) {
+  const elem = document.getElementById(`consommable-${index}`);
+  if (elem) elem.remove();
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const date = new Date();
+  const formatted = date.toLocaleDateString("fr-FR", {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+  });
+  document.getElementById("intervention-date").innerText = formatted;
+});
+
+function confirmFinalisation() {
+  if (confirm("Souhaitez-vous vraiment finaliser cette intervention ?\nLes données seront considérées comme validées.")) {
+    alert("Intervention finalisée avec succès !");
+  }
+}
+
+function lockForm() {
+  // Rendre tous les inputs en lecture seule
+  document.querySelectorAll("input[type='text']").forEach(input => input.setAttribute("readonly", true));
+
+  // Désactiver tous les boutons sauf "Finaliser"
+  document.querySelectorAll("button").forEach(btn => {
+    if (btn.id !== "btn-finaliser" && btn.id !== "btn-unlock") {
+      btn.disabled = true;
+      btn.style.opacity = 0.5;
+      btn.style.cursor = "not-allowed";
+    }
+  });
+
+  // Indiquer que le formulaire est verrouillé
+  const confirmationNote = document.createElement("p");
+  confirmationNote.innerText = "🔒 Fiche verrouillée. Aucune modification possible.";
+  confirmationNote.style.color = "#F5A623";
+  confirmationNote.style.fontWeight = "bold";
+  confirmationNote.style.textAlign = "center";
+  document.body.appendChild(confirmationNote);
+}
+
+function confirmFinalisation() {
+  if (confirm("Souhaitez-vous vraiment finaliser cette intervention ?\nLes données seront considérées comme validées.")) {
+    alert("Intervention finalisée avec succès !");
+    lockForm();
+  }
+}
+
+function unlockForm() {
+  // Réactiver les champs texte
+  document.querySelectorAll("input[type='text']").forEach(input => input.removeAttribute("readonly"));
+
+  // Réactiver les boutons sauf ceux déjà liés à verrouillage
+  document.querySelectorAll("button").forEach(btn => {
+    if (btn.id !== "btn-finaliser" && btn.id !== "btn-unlock") {
+      btn.disabled = false;
+      btn.style.opacity = 1;
+      btn.style.cursor = "pointer";
+    }
+  });
+
+  // Retirer le message de verrouillage s’il existe
+  const existingNote = document.querySelector("p[style*='F5A623']");
+  if (existingNote) existingNote.remove();
+}
+
+function unlockForm() {
+  // Réactiver les champs texte
+  document.querySelectorAll("input[type='text']").forEach(input => input.removeAttribute("readonly"));
+
+  // Réactiver les boutons sauf Finaliser
+  document.querySelectorAll("button").forEach(btn => {
+    if (btn.id !== "btn-finaliser" && btn.id !== "btn-unlock") {
+      btn.disabled = false;
+      btn.style.opacity = 1;
+      btn.style.cursor = "pointer";
+    }
+  });
+
+  // Retirer le message de verrouillage s’il existe
+  const lockMessage = document.getElementById("lock-message");
+  if (lockMessage) lockMessage.remove();
+}
+</script><div id="preview-filename" style="margin-top: 20px; font-weight: bold;">📎 Fichier généré : (aucun nom encore)</div><button onclick="exporterEtEnvoyer()" style="margin: 20px; padding: 12px 24px; background-color: #3083DC; color: white; font-weight: bold; border: none; border-radius: 6px; cursor: pointer;">📄 Exporter et envoyer vers Dropbox</button><script>
+async function exporterEtEnvoyer() {
+  const element = document.querySelector('.pdf-wrapper');
+  const opt = {
+    margin: 0.5,
+    filename: '',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+  };
+
+  const poseInput = document.querySelector('input[name="pose"]');
+  const nomPose = poseInput ? poseInput.value.trim().replaceAll(' ', '_') || "intervention" : "intervention";
+
+  const now = new Date();
+  const dateStr = now.toISOString().split('T')[0];
+  const timeStr = now.getHours().toString().padStart(2, '0') + 'h' + now.getMinutes().toString().padStart(2, '0');
+
+  const finalFilename = `${dateStr}_${timeStr}_Pose_${nomPose}.pdf`;
+  opt.filename = finalFilename;
+
+  const preview = document.getElementById('preview-filename');
+  if (preview) preview.textContent = "📎 Fichier généré : " + finalFilename;
+
+  const blob = await html2pdf().from(element).set(opt).outputPdf('blob');
+
+  const reader = new FileReader();
+  reader.onloadend = async function () {
+    const base64data = reader.result.split(',')[1];
+
+    const formData = new FormData();
+    formData.append("file", base64data);
+    formData.append("filename", opt.filename);
+
+    const response = await fetch("https://script.google.com/macros/s/AKfycbxuZj8OctrMwvZfPXi2tsnrGMohb98y8VCQW6Jlnypd6ngDDSgmQaxg8YXn3d_Olvtw/exec", {
+      method: "POST",
+      body: formData
+    });
+
+    const text = await response.text();
+    alert(text);
+  };
+
+  reader.readAsDataURL(blob);
+}
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const poseInput = document.querySelector('input[name="pose"]');
+  const preview = document.getElementById('preview-filename');
+
+  function updatePreviewFilename() {
+    const nomPose = poseInput.value.trim().replaceAll(' ', '_') || "intervention";
+    const now = new Date();
+    const dateStr = now.toISOString().split('T')[0];
+    const timeStr = now.getHours().toString().padStart(2, '0') + 'h' + now.getMinutes().toString().padStart(2, '0');
+    const finalFilename = `${dateStr}_${timeStr}_Pose_${nomPose}.pdf`;
+    if (preview) preview.textContent = "📎 Fichier généré : " + finalFilename;
+  }
+
+  if (poseInput && preview) {
+    poseInput.addEventListener("input", updatePreviewFilename);
+    updatePreviewFilename();
+  }
+});
+</script></body>
+</html>
