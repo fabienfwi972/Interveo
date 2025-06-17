@@ -263,7 +263,7 @@ header h1 {
 }
 </style></head>
 <body><div class="pdf-wrapper"><img src="Interveo_Logo_EnTete.png" style="width: 100%; max-width: 100%; display: block; margin-bottom: 10px;"/><header style="background-color: transparent; padding: 20px 0; display: flex; justify-content: center; align-items: center;"><div style="font-size: 2.5rem; font-weight: 600; color: #ffffff;">Fiche d’intervention Intervéo</div></header>
-<div class="section"><h2>📆 Date de l’intervention</h2><p id="intervention-date" style="font-size: 1.2rem; font-weight: bold; margin-top: 10px;"></p></div><div class="section"><label for="nomPose"><strong>Pose :</strong></label><input id="nomPose" name="pose" placeholder="Ex : Mme DUPONT - Cuisine" style="
+<div class="section"><h2>📆 Date de l’intervention</h2><p id="intervention-date" style="font-size: 1.2rem; font-weight: bold; margin-top: 10px;"></p></div><div class="section"><label for="nomPose"><strong>Pose :</strong></label><input id="nomPose" placeholder="Ex : Mme DUPONT - Cuisine" style="
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
@@ -1321,5 +1321,52 @@ document.addEventListener("DOMContentLoaded", function () {
     updatePreviewFilename();
   }
 });
-</script></body>
+</script><script>
+function finaliserIntervention() {
+  const pose = document.querySelector('input[name="pose"]')?.value || "";
+  const poseur = document.querySelector('input[name="poseur"]')?.value || "";
+
+  const chronotext = document.getElementById("total-time")?.textContent || "0m 0s";
+  const temps = chronotext.replace("m", "m ").replace("s", "s");
+
+  // Récupération des tâches
+  let taches = [];
+  document.querySelectorAll(".task").forEach((task) => {
+    const label = task.querySelector("strong")?.textContent || "";
+    const qty = task.querySelector("span[id^='qty-']")?.textContent || "";
+    if (qty && qty !== "0") {
+      taches.push(label + " x" + qty);
+    }
+  });
+
+  // Récupération des consommables
+  let conso = [];
+  document.querySelectorAll("#consommables-container .task").forEach((c) => {
+    const label = c.querySelector("input[type='text']")?.value || c.querySelector("strong")?.textContent || "";
+    const qty = c.querySelector("span[id^='qty-c']")?.textContent || "";
+    if (label && qty && qty !== "0") {
+      conso.push(label + " x" + qty);
+    }
+  });
+
+  const data = {
+    pose: pose,
+    poseur: poseur,
+    temps: temps,
+    taches: taches.join(" / "),
+    consommables: conso.join(" / ")
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycby39SMz_YUo5FkgRffdbXK7C6Fl4L2WzNqrnoPMKK1qKnRzVZVM0zujLW4T-i_wuuza/exec", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(res => res.text())
+  .then(txt => alert(txt))
+  .catch(err => alert("❌ Erreur : " + err));
+}
+</script><button onclick="finaliserIntervention()" style="margin: 24px 0; padding: 12px 24px; background-color: #3083DC; color: white; font-weight: bold; border: none; border-radius: 6px; cursor: pointer;">✅ Finaliser l’intervention (Google Sheet)</button></body>
 </html>
