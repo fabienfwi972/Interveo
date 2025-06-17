@@ -1291,7 +1291,7 @@ async function exporterEtEnvoyer() {
     formData.append("file", base64data);
     formData.append("filename", opt.filename);
 
-    const response = await fetch("https://script.google.com/macros/s/AKfycbxBDewrhroLpzUVx_cvYiarq27ajLeskz4YO_kVxBfGip_UznRDQp0TXGcmJB1am0k/exec", {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbxuZj8OctrMwvZfPXi2tsnrGMohb98y8VCQW6Jlnypd6ngDDSgmQaxg8YXn3d_Olvtw/exec", {
       method: "POST",
       body: formData
     });
@@ -1321,49 +1321,46 @@ document.addEventListener("DOMContentLoaded", function () {
     updatePreviewFilename();
   }
 });
-</script><script>
-function finaliserIntervention() {
-  const pose = document.querySelector('input[name="pose"]')?.value || "";
-  const poseur = document.querySelector('input[name="poseur"]')?.value || "";
+</script><button id="export-txt-button" onclick="exportTXTToDropbox()" style="margin-right: 10px; background-color: #f1c40f; color: black; padding: 10px 20px; border: none; border-radius: 6px; font-weight: bold;">📄 Export TXT vers Dropbox</button>
+<script>
+function exportTXTToDropbox() {
+  const now = new Date();
+  const date = now.toLocaleDateString('fr-CA');
+  const time = now.toTimeString().split(' ')[0].replace(/:/g, '-');
 
-  const chronotext = document.getElementById("total-time")?.textContent || "0m 0s";
-  const temps = chronotext.replace("m", "m ").replace("s", "s");
+  const pose = document.getElementById("pose-name")?.value || "SansNom";
+  const poseur = document.getElementById("poseur-name")?.value || "PoseurInconnu";
+  const chrono = document.getElementById("chrono-total")?.innerText || "0m 0s";
 
-  // Récupération des tâches
-  let taches = [];
-  document.querySelectorAll(".task").forEach((task) => {
-    const label = task.querySelector("strong")?.textContent || "";
-    const qty = task.querySelector("span[id^='qty-']")?.textContent || "";
-    if (qty && qty !== "0") {
-      taches.push(label + " x" + qty);
-    }
+  let txt = `Date : ${date} ${time}
+Nom de la pose : ${pose}
+Poseur : ${poseur}
+Temps total : ${chrono}
+\n`;
+
+  txt += "--- Tâches ---\n";
+  document.querySelectorAll(".task").forEach(task => {
+    const titre = task.querySelector("strong")?.innerText || "";
+    const qty = task.querySelector(".quantity span[id^='qty-']")?.innerText || "";
+    if (titre && qty) txt += `${titre} x${qty}\n`;
   });
 
-  // Récupération des consommables
-  let conso = [];
-  document.querySelectorAll("#consommables-container .task").forEach((c) => {
-    const label = c.querySelector("input[type='text']")?.value || c.querySelector("strong")?.textContent || "";
-    const qty = c.querySelector("span[id^='qty-c']")?.textContent || "";
-    if (label && qty && qty !== "0") {
-      conso.push(label + " x" + qty);
-    }
+  txt += "\n--- Consommables ---\n";
+  document.querySelectorAll("#consommables-container .task").forEach(cons => {
+    const label = cons.querySelector("input[type='text']")?.value || "";
+    const qty = cons.querySelector("span[id^='qty-c']")?.innerText || "";
+    if (label) txt += `${label} x${qty}U\n`;
   });
 
-  const data = {
-    pose: pose,
-    poseur: poseur,
-    temps: temps,
-    taches: taches.join(" / "),
-    consommables: conso.join(" / ")
-  };
-
-  fetch("https://script.google.com/macros/s/AKfycbxBDewrhroLpzUVx_cvYiarq27ajLeskz4YO_kVxBfGip_UznRDQp0TXGcmJB1am0k/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbz13lpc06-GTHdJD7ktpXEIf3QssSc_bLCyNXCVVfIuB1Oa8j4l1GEGT1b_Aossb3qi/exec", {
     method: "POST",
-    body: JSON.stringify(data),
-    })
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: txt
+  })
   .then(res => res.text())
   .then(txt => alert(txt))
-  .catch(err => alert("❌ Erreur : " + err));
+  .catch(err => alert("❌ Erreur TXT Dropbox : " + err.message));
 }
-</script><button onclick="finaliserIntervention()" style="margin: 24px 0; padding: 12px 24px; background-color: #3083DC; color: white; font-weight: bold; border: none; border-radius: 6px; cursor: pointer;">✅ Finaliser l’intervention (Google Sheet)</button></body>
-</html>
+</script>
+</body>
+</html
