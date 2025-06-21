@@ -270,7 +270,7 @@ header h1 {
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
-" type="text"/><br/></div><div style="margin-bottom: 20px; background: #e1e1e1; padding: 10px; border-radius: 6px;"><label style="display: block; font-weight: bold; margin-bottom: 5px;">👤 Nom du poseur :</label><input name="poseur" style="padding: 6px; border-radius: 4px; width: 100%; border: 1px solid #ccc;" type="text"/></div>
+" type="text"/><br/></div><div style="margin-bottom: 20px; background: #e1e1e1; padding: 10px; border-radius: 6px;"><label style="display: block; font-weight: bold; margin-bottom: 5px;">👤 Nom du poseur :</label><input name="poseur" id="poseur-name" style="padding: 6px; border-radius: 4px; width: 100%; border: 1px solid #ccc;" type="text"/></div>
 <br/>
 <div id="global-timer-container" style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
 <strong>⏱️ Temps total d'intervention :</strong>
@@ -1302,7 +1302,9 @@ async function exporterEtEnvoyer() {
 
   reader.readAsDataURL(blob);
 }
-</script><script>
+</script>
+
+<script>
 document.addEventListener("DOMContentLoaded", function () {
   const poseInput = document.querySelector('input[name="pose"]');
   const preview = document.getElementById('preview-filename');
