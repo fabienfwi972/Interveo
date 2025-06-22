@@ -1348,6 +1348,9 @@ Temps total : ${chrono}
     const qtyEl = task.querySelector(".quantity span[id^='qty-']");
     const qty = qtyEl?.innerText;
 
+       // ⚠️ Évite de réécrire une ligne comme "--- Tâches ---"
+    if (titre.startsWith("---")) return;
+
     if (titre && qty !== undefined) {
       // Cas standard avec quantité
       txt += `${titre} x${qty} (${timer})\n`;
