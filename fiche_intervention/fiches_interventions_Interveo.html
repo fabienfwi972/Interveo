@@ -1330,9 +1330,9 @@ function exportTXTToDropbox() {
   const date = now.toLocaleDateString('fr-CA');
   const time = now.toTimeString().split(' ')[0].replace(/:/g, '-');
 
-  const pose = document.getElementById("pose-name")?.value || "SansNom";
+  const pose = document.getElementById("nomPose")?.value || "SansNom";
   const poseur = document.getElementById("poseur-name")?.value || "PoseurInconnu";
-  const chrono = document.getElementById("chrono-total")?.innerText || "0m 0s";
+  const chrono = document.getElementById("global-timer")?.innerText || "0m 0s";
 
   let txt = `Date : ${date} ${time}
 Nom de la pose : ${pose}
