@@ -1342,24 +1342,18 @@ Temps total : ${chrono}
 
   txt += "--- Tâches ---\n";
   document.querySelectorAll(".task").forEach(task => {
-    const titre = task.querySelector("strong")?.innerText
-             || task.querySelector("input.task-label")?.value
-             || "";
-    const timer = task.querySelector("div[id^='timer-']")?.innerText || "";
-    const qtyEl = task.querySelector(".quantity span[id^='qty-']");
-    const qty = qtyEl?.innerText;
+  const titre = task.querySelector("strong")?.innerText || "";
+  const qtyEl = task.querySelector(".quantity span[id^='qty-']");
+  const timerEl = task.querySelector("div[id^='timer-']");
+  const temps = timerEl ? timerEl.innerText : "";
 
-       // ⚠️ Évite de réécrire une ligne comme "--- Tâches ---"
-    if (titre.startsWith("---")) return;
-
-    if (titre && qty !== undefined) {
-      // Cas standard avec quantité
-      txt += `${titre} x${qty} (${timer})\n`;
-    } else if (titre) {
-      // Cas MOC_ ou autre sans quantité
-      txt += `${titre} (${timer})\n`;
-    }
-  });
+  if (titre && qtyEl) {
+    const qty = qtyEl.innerText;
+    txt += `${titre} x${qty} (${temps})\n`;
+  } else if (titre) {
+    txt += `${titre} (${temps})\n`;
+  }
+});
 
     
   txt += "\n--- Consommables ---\n";
