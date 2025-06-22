@@ -1358,18 +1358,20 @@ Temps total : ${chrono}
 
     
   let consommableSection = "";
+
     document.querySelectorAll("#consommables-container .task").forEach(cons => {
       const label =
         cons.querySelector("input[type='text']")?.value ||
         cons.querySelector("strong")?.innerText ||
         "";
       const qty = cons.querySelector("span[id^='qty-']")?.innerText || "0";
-      if (label) txt += `${label} x${qty}\n`;
+      if (label) consommableSection += `${label} x${qty}\n`;
     });
-
+    
     if (consommableSection) {
       txt += "\n--- Consommables ---\n" + consommableSection;
     }
+    
   fetch("https://script.google.com/macros/s/AKfycbwUZdo_jfntXKnXQSIUq67TluPDaTW83AB-oybrz1Um74jq3pgDs5Ya7PiFyLgGdy8L/exec", {
     method: "POST",
     headers: { "Content-Type": "text/plain;charset=utf-8" },
