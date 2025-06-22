@@ -1341,19 +1341,22 @@ Temps total : ${chrono}
 \n`;
 
   txt += "--- Tâches ---\n";
+  txt += "--- Tâches ---\n";
   document.querySelectorAll(".task").forEach(task => {
     const titre = task.querySelector("strong")?.innerText || "";
-    const qty = task.querySelector(".quantity span[id^='qty-']")?.innerText || "";
-    const temps = task.querySelector("div[id^='timer-']")?.innerText || "";
-    if (titre && qtyEl) {
+    const timer = task.querySelector("div[id^='timer-']")?.innerText || "";
+    const qtyEl = task.querySelector(".quantity span[id^='qty-']");
+    const qty = qtyEl?.innerText;
+
+    if (titre && qty !== undefined) {
       // Cas standard avec quantité
-      const qty = qtyEl.innerText;
       txt += `${titre} x${qty} (${timer})\n`;
     } else if (titre) {
       // Cas MOC_ ou autre sans quantité
       txt += `${titre} (${timer})\n`;
     }
   });
+
     
   txt += "\n--- Consommables ---\n";
   document.querySelectorAll("#consommables-container .task").forEach(cons => {
