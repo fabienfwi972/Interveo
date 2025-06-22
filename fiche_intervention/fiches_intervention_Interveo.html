@@ -1345,7 +1345,14 @@ Temps total : ${chrono}
     const titre = task.querySelector("strong")?.innerText || "";
     const qty = task.querySelector(".quantity span[id^='qty-']")?.innerText || "";
     const temps = task.querySelector("div[id^='timer-']")?.innerText || "";
-    if (titre && qty) txt += `${titre} x${qty} (${temps})\n`;
+    if (titre && qtyEl) {
+      // Cas standard avec quantité
+      const qty = qtyEl.innerText;
+      txt += `${titre} x${qty} (${timer})\n`;
+    } else if (titre) {
+      // Cas MOC_ ou autre sans quantité
+      txt += `${titre} (${timer})\n`;
+    }
   });
     
   txt += "\n--- Consommables ---\n";
