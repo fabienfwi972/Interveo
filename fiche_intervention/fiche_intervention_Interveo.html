@@ -1357,13 +1357,15 @@ Temps total : ${chrono}
     });
 
     
-  txt += "\n--- Consommables ---\n";
-  document.querySelectorAll("#consommables-container .task").forEach(cons => {
-    const label = cons.querySelector("input[type='text']")?.value || "";
-    const qty = cons.querySelector("span[id^='qty-c']")?.innerText || "";
-    if (label) txt += `${label} x${qty}U\n`;
-  });
-
+  let consommableSection = "";
+    document.querySelectorAll("#consommables-container .task").forEach(cons => {
+      const label = cons.querySelector("input[type='text']")?.value || "";
+      const qty = cons.querySelector("span[id^='qty-c']")?.innerText || "";
+      if (label) consommableSection += `${label} x${qty}U\n`;
+    });
+    if (consommableSection) {
+      txt += "\n--- Consommables ---\n" + consommableSection;
+    }
   fetch("https://script.google.com/macros/s/AKfycbwUZdo_jfntXKnXQSIUq67TluPDaTW83AB-oybrz1Um74jq3pgDs5Ya7PiFyLgGdy8L/exec", {
     method: "POST",
     headers: { "Content-Type": "text/plain;charset=utf-8" },
