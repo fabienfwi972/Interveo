@@ -1344,9 +1344,10 @@ Temps total : ${chrono}
   document.querySelectorAll(".task").forEach(task => {
     const titre = task.querySelector("strong")?.innerText || "";
     const qty = task.querySelector(".quantity span[id^='qty-']")?.innerText || "";
-    if (titre && qty) txt += `${titre} x${qty}\n`;
+    const temps = task.querySelector("div[id^='timer-']")?.innerText || "";
+    if (titre && qty) txt += `${titre} x${qty} (${temps})\n`;
   });
-
+    
   txt += "\n--- Consommables ---\n";
   document.querySelectorAll("#consommables-container .task").forEach(cons => {
     const label = cons.querySelector("input[type='text']")?.value || "";
