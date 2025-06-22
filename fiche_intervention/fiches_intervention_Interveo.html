@@ -1343,13 +1343,11 @@ Temps total : ${chrono}
   txt += "--- Tâches ---\n";
     document.querySelectorAll(".task").forEach(task => {
       const titre = task.querySelector("strong")?.innerText
-                   || task.querySelector("input[type='text']")?.value
-                   || "";
+                 || task.querySelector("input[type='text']")?.value
+                 || "";
       const timer = task.querySelector("div[id^='timer-']")?.innerText || "";
       const qtyEl = task.querySelector(".quantity span[id^='qty-']");
       const qty = qtyEl?.innerText;
-    
-      if (titre.startsWith("---")) return;
     
       if (titre && qty !== undefined) {
         txt += `${titre} x${qty} (${timer})\n`;
@@ -1357,17 +1355,6 @@ Temps total : ${chrono}
         txt += `${titre} (${timer})\n`;
       }
     });
-  const qtyEl = task.querySelector(".quantity span[id^='qty-']");
-  const timerEl = task.querySelector("div[id^='timer-']");
-  const temps = timerEl ? timerEl.innerText : "";
-
-  if (titre && qtyEl) {
-    const qty = qtyEl.innerText;
-    txt += `${titre} x${qty} (${temps})\n`;
-  } else if (titre) {
-    txt += `${titre} (${temps})\n`;
-  }
-});
 
     
   txt += "\n--- Consommables ---\n";
