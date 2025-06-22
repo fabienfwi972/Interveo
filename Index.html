@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intervéo – Accueil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #3f3f3f;
+      --primary: #f3c42b;
+      --accent: #f5a623;
+      --hover: #e68c00;
+      --text: #333;
+      --text-muted: #ccc;
+      --nav-bg: #2b2b2b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      padding-top: 80px; /* espace pour la navbar fixe */
+    }
+
+    /* 🔸 NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--nav-bg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar .logo {
+      height: 48px;
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .navbar nav a:hover {
+      color: var(--accent);
+    }
+
+    main {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      color: var(--hover);
+      margin-bottom: 2rem;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .link-card {
+      text-decoration: none;
+      background-color: #fffbea;
+      border-left: 6px solid var(--primary);
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(230, 140, 0, 0.1);
+      color: var(--text);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 500;
+    }
+
+    .link-card i {
+      color: var(--hover);
+      width: 20px;
+      height: 20px;
+    }
+
+    .link-card:hover {
+      background-color: #fff3d4;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .link-card {
+        font-size: 0.95rem;
+      }
+
+      .navbar nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔸 NAVIGATION -->
+  <header class="navbar">
+    <img src="Interveo_Logo_EnTete.png" class="logo" alt="Logo Intervéo">
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="formulaire-client.html">Disponibilités</a>
+      <a href="tickets-incidents.html">Tickets SAV</a>
+      <a href="rapport-de-pose.html">Rapport</a>
+      <a href="fiche-intervention.html">Intervention</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <!-- 🔸 CONTENU PRINCIPAL -->
+  <main>
+    <h1>Portail Intervéo</h1>
+    <div class="links">
+      <a href="formulaire-client.html" class="link-card"><i data-lucide="calendar-check"></i>Formulaire de disponibilités client</a>
+      <a href="tickets-incidents.html" class="link-card"><i data-lucide="wrench"></i>Saisie de tickets SAV</a>
+      <a href="rapport-de-pose.html" class="link-card"><i data-lucide="clipboard-list"></i>Rapport de fin de chantier</a>
+      <a href="fiche-intervention.html" class="link-card"><i data-lucide="clipboard-list"></i>Fiche d'intervention</a>
+      <a href="dashboard.html" class="link-card"><i data-lucide="bar-chart-3"></i>Tableau de bord (interne)</a>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Intervéo • développé par Fabien Chenavas
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>
+
