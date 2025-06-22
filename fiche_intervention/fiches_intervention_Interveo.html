@@ -1359,10 +1359,14 @@ Temps total : ${chrono}
     
   let consommableSection = "";
     document.querySelectorAll("#consommables-container .task").forEach(cons => {
-      const label = cons.querySelector("input[type='text']")?.value || "";
-      const qty = cons.querySelector("span[id^='qty-c']")?.innerText || "";
-      if (label) consommableSection += `${label} x${qty}U\n`;
+      const label =
+        cons.querySelector("input[type='text']")?.value ||
+        cons.querySelector("strong")?.innerText ||
+        "";
+      const qty = cons.querySelector("span[id^='qty-']")?.innerText || "0";
+      if (label) txt += `${label} x${qty}\n`;
     });
+
     if (consommableSection) {
       txt += "\n--- Consommables ---\n" + consommableSection;
     }
