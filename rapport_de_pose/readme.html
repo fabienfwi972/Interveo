@@ -1,1 +1,12 @@
 
+Rapport de fin de chantier — v1.2.1
+
+Ce bundle contient :
+- formulaire.html (compatible Apps Script ET ouverture locale)
+- formulaire_local.html (prévisualisation locale simple)
+- template_pdf.html (inchangé par rapport à v1.2)
+
+Notes de correction v1.2.1 :
+- Les appels à section(...) passent désormais un objet vide par défaut: (prefill && prefill.xxx) || {}
+- Fallback quand les variables Apps Script ne sont pas injectées (JSON.parse dans try/catch)
+
