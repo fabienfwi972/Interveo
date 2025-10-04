@@ -26,5 +26,12 @@
   <p style="color:#666; font-size:14px; margin-top:12px;">
     Astuce : si vous êtes dans l’appli Gmail/Facebook, ouvrez ce lien dans le navigateur (Chrome).
   </p>
+
+  <script>
+  // ajoute ?ts=timestamp à l’URL /exec pour casser un éventuel cache
+  const a = document.getElementById('go');
+  a.href = a.href + (a.href.includes('?') ? '&' : '?') + 'ts=' + Date.now();
+  </script>
+  
 </body>
 </html>
