@@ -4,18 +4,21 @@
 <title>Ouverture du rapport…</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<!-- Redirection instantanée -->
+<!-- Redirection instantanée vers Apps Script -->
 <meta http-equiv="refresh" content="0;url=https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec">
 
 <body style="font-family:system-ui,Segoe UI,Roboto,Arial">
   <p>Ouverture du formulaire…</p>
-  <p><a id="lien" href="https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec">
-    Cliquez ici si la redirection ne démarre pas.</a></p>
+  <p>
+    <a id="lien" href="https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec">
+      Cliquez ici si la redirection ne démarre pas.
+    </a>
+  </p>
 
   <script>
     (function(){
       var url = 'https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec';
-      // Fallback très fiable (au cas où le meta-refresh serait bloqué)
+      // Fallback très fiable si le meta-refresh est bloqué
       setTimeout(function(){ window.location.replace(url); }, 50);
       document.getElementById('lien').href = url;
     })();
