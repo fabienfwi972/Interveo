@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<title>Ouverture du rapport…</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Redirection instantanée -->
+<meta http-equiv="refresh" content="0;url=VOTRE_URL_EXEC">
+<body style="font-family:system-ui,Segoe UI,Roboto,Arial">
+  <p>Ouverture du formulaire…</p>
+  <p><a id="lien" href="https://script.google.com/macros/s/AKfycbxP1RwqUjXbjveACy0BEuUrtooP__anOTN9VoJfQBgRFZSxKBL4fFF03SVKDoS1h6n8yg/exec">Cliquez ici si la redirection ne démarre pas.</a></p>
+  <script>
+    (function(){
+      var url = 'VOTRE_URL_EXEC';
+      // Fallback JS ultra fiable (certaines configs bloquent le meta refresh)
+      setTimeout(function(){ window.location.replace(url); }, 50);
+      document.getElementById('lien').href = url;
+    })();
+  </script>
+</body>
+</html>
