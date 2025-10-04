@@ -1,39 +1,35 @@
 <!doctype html>
 <html lang="fr">
 <meta charset="utf-8">
-<title>Ouverture du rapport…</title>
+<title>Ouvrir le rapport</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<body style="font-family:system-ui,Segoe UI,Roboto,Arial; padding:16px">
-  <h1 style="font-size:18px;margin:0 0 12px">Ouverture du rapport…</h1>
+<body style="font-family:system-ui,Segoe UI,Roboto,Arial; padding:20px;">
+  <h1 style="font-size:18px; margin:0 0 12px;">Ouverture du rapport de fin de chantier</h1>
 
-  <!-- 1) Lien direct (gesture utilisateur = passe partout) -->
-  <p>
-    <a id="lien" href="https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec"
-       target="_blank" rel="noopener noreferrer"
-       style="display:inline-block;padding:12px 18px;border-radius:10px;background:#ff6a00;color:#fff;text-decoration:none">
-       Ouvrir le rapport maintenant
+  <button id="go"
+          style="display:inline-block;padding:12px 18px;border:0;border-radius:10px;
+                 background:#ff6a00;color:#fff;font-weight:600;">
+    Ouvrir le rapport maintenant
+  </button>
+
+  <p style="margin:14px 0 0;">
+    <a id="alt" href="https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec">
+      Ouvrir via le lien direct
     </a>
   </p>
 
-  <!-- 2) Soumission de formulaire (certains webviews l’acceptent mieux) -->
-  <form action="https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec" method="get" target="_blank" style="margin:8px 0">
-    <button type="submit" style="padding:10px 14px;border-radius:8px;border:1px solid #ddd;background:#fff">
-      Ouvrir via formulaire
-    </button>
-  </form>
-
-  <!-- 3) Tentatives auto (si le navigateur l’autorise) -->
-  <script>
-    (function () {
-      var url = 'https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec';
-      setTimeout(function(){ try { window.location.assign(url); } catch(e) {} }, 150);
-      setTimeout(function(){ try { window.open(url, '_blank', 'noopener'); } catch(e) {} }, 400);
-    })();
-  </script>
-
-  <p style="color:#666;font-size:13px;margin-top:12px">
-    Astuce : si vous êtes dans l’appli Gmail/Facebook, ouvrez ce lien dans le navigateur (Chrome/Safari) pour éviter les blocages.
+  <p style="color:#666; font-size:14px; margin-top:12px;">
+    Astuce : si vous êtes dans l’appli Gmail/Facebook, ouvrez ce lien dans le navigateur (Chrome/Safari).
   </p>
+
+  <script>
+    const url = 'https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec';
+    document.getElementById('go').addEventListener('click', function () {
+      // Navigation dans le même onglet: non considérée comme pop-up par les mobiles
+      location.href = url;
+    });
+    document.getElementById('alt').href = url;
+  </script>
 </body>
 </html>
