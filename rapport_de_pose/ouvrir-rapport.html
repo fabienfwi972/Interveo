@@ -3,15 +3,19 @@
 <meta charset="utf-8">
 <title>Ouverture du rapport…</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <!-- Redirection instantanée -->
-<meta http-equiv="refresh" content="0;url=VOTRE_URL_EXEC">
+<meta http-equiv="refresh" content="0;url=https://script.google.com/macros/s/AKfycbxP1RwqUjXbjveACy0BEUurto0P__an0T9VoJfQ8gRFZ5xKBL4FFf03SVKDOs1h6n8yg/exec">
+
 <body style="font-family:system-ui,Segoe UI,Roboto,Arial">
   <p>Ouverture du formulaire…</p>
-  <p><a id="lien" href="https://script.google.com/macros/s/AKfycbxP1RwqUjXbjveACy0BEuUrtooP__anOTN9VoJfQBgRFZSxKBL4fFF03SVKDoS1h6n8yg/exec">Cliquez ici si la redirection ne démarre pas.</a></p>
+  <p><a id="lien" href="https://script.google.com/macros/s/AKfycbxP1RwqUjXbjveACy0BEUurto0P__an0T9VoJfQ8gRFZ5xKBL4FFf03SVKDOs1h6n8yg/exec">
+    Cliquez ici si la redirection ne démarre pas.</a></p>
+
   <script>
     (function(){
-      var url = 'VOTRE_URL_EXEC';
-      // Fallback JS ultra fiable (certaines configs bloquent le meta refresh)
+      var url = 'https://script.google.com/macros/s/AKfycbxP1RwqUjXbjveACy0BEUurto0P__an0T9VoJfQ8gRFZ5xKBL4FFf03SVKDOs1h6n8yg/exec';
+      // Fallback très fiable (au cas où le meta-refresh serait bloqué)
       setTimeout(function(){ window.location.replace(url); }, 50);
       document.getElementById('lien').href = url;
     })();
