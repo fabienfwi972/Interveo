@@ -3,29 +3,37 @@
 <meta charset="utf-8">
 <title>Ouverture du rapport…</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="refresh" content="0;url=https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec">
 
-<body style="font-family:system-ui,Segoe UI,Roboto,Arial; padding:16px;">
-  <p>Ouverture du formulaire…</p>
+<body style="font-family:system-ui,Segoe UI,Roboto,Arial; padding:16px">
+  <h1 style="font-size:18px;margin:0 0 12px">Ouverture du rapport…</h1>
 
-  <!-- Bouton manuel si l’auto-redir est bloquée -->
+  <!-- 1) Lien direct (gesture utilisateur = passe partout) -->
   <p>
-    <a id="lien"
-       href="https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec"
-       style="display:inline-block;padding:12px 18px;border-radius:10px;background:#ff6a00;color:#fff;text-decoration:none;"
-       rel="noopener noreferrer external">Ouvrir le rapport maintenant</a>
+    <a id="lien" href="https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec"
+       target="_blank" rel="noopener noreferrer"
+       style="display:inline-block;padding:12px 18px;border-radius:10px;background:#ff6a00;color:#fff;text-decoration:none">
+       Ouvrir le rapport maintenant
+    </a>
   </p>
 
+  <!-- 2) Soumission de formulaire (certains webviews l’acceptent mieux) -->
+  <form action="https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec" method="get" target="_blank" style="margin:8px 0">
+    <button type="submit" style="padding:10px 14px;border-radius:8px;border:1px solid #ddd;background:#fff">
+      Ouvrir via formulaire
+    </button>
+  </form>
+
+  <!-- 3) Tentatives auto (si le navigateur l’autorise) -->
   <script>
     (function () {
       var url = 'https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec';
-      // Enchaîne plusieurs méthodes (certains webviews bloquent l’une ou l’autre)
-      try { location.replace(url); } catch(e) {}
-      setTimeout(function(){ try { window.location.href = url; } catch(e) {} }, 120);
-      setTimeout(function(){ try { top.location.href = url; } catch(e) {} }, 300);
-      // Met à jour le lien manuel au cas où
-      document.getElementById('lien').href = url;
+      setTimeout(function(){ try { window.location.assign(url); } catch(e) {} }, 150);
+      setTimeout(function(){ try { window.open(url, '_blank', 'noopener'); } catch(e) {} }, 400);
     })();
   </script>
+
+  <p style="color:#666;font-size:13px;margin-top:12px">
+    Astuce : si vous êtes dans l’appli Gmail/Facebook, ouvrez ce lien dans le navigateur (Chrome/Safari) pour éviter les blocages.
+  </p>
 </body>
 </html>
