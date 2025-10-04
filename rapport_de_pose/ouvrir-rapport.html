@@ -3,23 +3,27 @@
 <meta charset="utf-8">
 <title>Ouverture du rapport…</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
-<!-- Redirection instantanée vers Apps Script -->
 <meta http-equiv="refresh" content="0;url=https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec">
 
-<body style="font-family:system-ui,Segoe UI,Roboto,Arial">
+<body style="font-family:system-ui,Segoe UI,Roboto,Arial; padding:16px;">
   <p>Ouverture du formulaire…</p>
+
+  <!-- Bouton manuel si l’auto-redir est bloquée -->
   <p>
-    <a id="lien" href="https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec">
-      Cliquez ici si la redirection ne démarre pas.
-    </a>
+    <a id="lien"
+       href="https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec"
+       style="display:inline-block;padding:12px 18px;border-radius:10px;background:#ff6a00;color:#fff;text-decoration:none;"
+       rel="noopener noreferrer external">Ouvrir le rapport maintenant</a>
   </p>
 
   <script>
-    (function(){
+    (function () {
       var url = 'https://script.google.com/macros/s/AKfycbxfAxEBy_juAYGeixOjNNWQFliY5o8VfrgIc7EbDzFslEBo59XIRvxJ4V88B-Ym_d2aGg/exec';
-      // Fallback très fiable si le meta-refresh est bloqué
-      setTimeout(function(){ window.location.replace(url); }, 50);
+      // Enchaîne plusieurs méthodes (certains webviews bloquent l’une ou l’autre)
+      try { location.replace(url); } catch(e) {}
+      setTimeout(function(){ try { window.location.href = url; } catch(e) {} }, 120);
+      setTimeout(function(){ try { top.location.href = url; } catch(e) {} }, 300);
+      // Met à jour le lien manuel au cas où
       document.getElementById('lien').href = url;
     })();
   </script>
