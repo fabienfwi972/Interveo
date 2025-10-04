@@ -1,0 +1,754 @@
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
+
+<!-- template_pdf.html — gabarit PDF v1.2 (identique à v1.2) -->
+<script type="application/json" id="data">__DATA__</script>
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color:#111; }
+  h1 { font-size: 20px; margin:0 0 4mm; display:flex; align-items:center; gap:8px; }
+  h2 { font-size: 14px; margin:6mm 0 2mm; border-bottom:1px solid #eee; padding-bottom:2mm; }
+  .row { display:flex; gap:6mm; }
+  .col { flex:1; }
+  .kv { margin: 0 0 1mm; }
+  .k { font-weight:600; }
+  .box { border:1px solid #e5e7eb; border-radius:6px; padding:4mm; margin-bottom:3mm; }
+  .ok { color:#2e7d32; font-weight:600; }
+  .nok { color:#d32f2f; font-weight:600; }
+  .charge { color:#8a3d00; font-weight:600; }
+  .thumbs { display:flex; flex-wrap:wrap; gap:3mm; }
+  .thumbs img { width: 42mm; height: 30mm; object-fit: cover; border:1px solid #eee; border-radius:4px; }
+  table { width:100%; border-collapse: collapse; }
+  th, td { border:1px solid #e5e7eb; padding:3mm; font-size: 11px; vertical-align: top; }
+  th { background:#fafafa; text-align:left; }
+  .sig { border:1px dashed #ccc; height: 35mm; display:flex; align-items:center; justify-content:center; }
+  .muted { color:#666; }
+</style>
+
+<!-- (Le reste du contenu est identique à v1.2 et géré côté Apps Script) -->
