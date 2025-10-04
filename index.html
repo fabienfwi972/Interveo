@@ -170,8 +170,15 @@
     lucide.createIcons();
   </script>
 
+  <script>
+  // force un paramètre ?v=timestamp sur le lien vers le pont
+  const a = document.querySelector('a[href*="rapport_de_pose/ouvrir-rapport.html"]');
+  if (a) a.href = 'rapport_de_pose/ouvrir-rapport.html?v=' + Date.now();
+  </script>
+  
 </body>
 </html>
+
 
 
 
